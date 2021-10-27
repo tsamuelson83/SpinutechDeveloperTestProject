@@ -13,8 +13,10 @@ namespace SpinutechDeveloperTestProject.Controllers
         // GET: Exercise1
         public ActionResult Index()
         {
-            var model = new Excercise1ViewModel();
-            model.showOutputValue = false;
+            var model = new Excercise1ViewModel()
+            {
+                ShowOutputValue = false
+            };
             return View(model);
         }
 
@@ -25,12 +27,12 @@ namespace SpinutechDeveloperTestProject.Controllers
 
             if (obj.Convert())
             {
-                vm.showOutputValue = true;
+                vm.ShowOutputValue = true;
                 vm.StringifiedValue = obj.StringifiedValue;
             } else
             {
-                vm.showErrorMessage = true;
-                vm.errorMessage = obj.ErrorMessage;
+                vm.ShowErrorMessage = true;
+                vm.ErrorMessage = obj.ErrorMessage;
             }
             return View(vm);
         }

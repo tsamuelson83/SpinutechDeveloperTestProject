@@ -8,7 +8,7 @@ namespace SpinutechDeveloperTestProject.BusinessObjects
     public class NumberStringifier
     {
         private string NumToConvert { get; set; }
-        public bool error { get; internal set; }
+        public bool Error { get; internal set; }
         public string ErrorMessage { get; internal set; }
         public string StringifiedValue { get; internal set; }
 
@@ -21,22 +21,26 @@ namespace SpinutechDeveloperTestProject.BusinessObjects
         {
             StringifiedValue = "";
 
-            double test_value = 0;
-
-            if (!double.TryParse(NumToConvert, out test_value))
+            //Try to convert the string value coming into a double and if the value is not a valid decimal number that return an error
+            if (!double.TryParse(NumToConvert, out double test_value))
             {
-                error = true;
+                Error = true;
                 ErrorMessage = "String can not be converted.";
                 return false;
             }
 
+
+            //  Get the integer value of the number to left of the decimal
             int intVal = (int)Math.Floor(test_value);
 
+            //  Pass the integer value to the conversion function and get back the stringified text for the integer part of the value
             StringifiedValue = NumberToText(intVal).Replace("- ", "-");
 
+            //  Get the two digits to the right of the parsed double.
             var cents = (int)(((decimal)test_value % 1) * 100);
 
-            StringifiedValue += String.Format("and {0:d2}/100", Math.Abs(cents));
+            //  And add the last part of formatted string to the stringified text.
+            StringifiedValue += String.Format("and {0:d2}/100 dollars", Math.Abs(cents));
 
             return true;
         }

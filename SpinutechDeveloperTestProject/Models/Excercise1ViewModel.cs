@@ -11,8 +11,8 @@ namespace SpinutechDeveloperTestProject.Models
 
         public string StringifiedValue { get; set; }
 
-        public bool showOutputValue { get; set; }
-        public bool showErrorMessage { get; set; }
-        public string errorMessage { get; set; }
+        public bool ShowOutputValue { get; set; }
+        public bool ShowErrorMessage { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }

@@ -8,17 +8,17 @@
 
 @using (Html.BeginForm("Index", "Exercise1", FormMethod.Post))
 {
-    <span>Enter The Number you want converted:</span> @Html.TextBoxFor(m => m.InputStringVal)
-    if (Model.showErrorMessage)
+    <span>Enter the number you want converted:</span> @Html.TextBoxFor(m => m.InputStringVal)
+    if (Model.ShowErrorMessage)
     {
-        <br /><span style="color:red">@Model.errorMessage</span>
+        <br /><span style="color:red">@Model.ErrorMessage</span>
     }
     <br />
 
         <input id="Submit" type="submit" value="submit" />
     }
 
-    @if (Model.showOutputValue)
+    @if (Model.ShowOutputValue)
     {
         <hr />
 
