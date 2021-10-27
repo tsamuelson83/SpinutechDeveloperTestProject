@@ -1,0 +1,26 @@
+﻿@model SpinutechDeveloperTestProject.Models.Excercise1ViewModel
+
+@{
+    ViewBag.Title = "Exercise 1";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index", "Exercise1", FormMethod.Post))
+{
+    <span>Enter The Number you want converted:</span> @Html.TextBoxFor(m => m.InputStringVal)
+    if (Model.showErrorMessage)
+    {
+        <br /><span style="color:red">@Model.errorMessage</span>
+    }
+    <br />
+
+        <input id="Submit" type="submit" value="submit" />
+    }
+
+    @if (Model.showOutputValue)
+    {
+        <hr />
+
+        <strong>Stringified Value: </strong> @Html.DisplayFor(m => m.StringifiedValue)
+    }
